@@ -1,0 +1,17 @@
+# java ignores 
+bin
+*.pyc
+*.*swp
+*~
+*.class
+_build
+.coverage
+.DS_Store
+.ropeproject
+# Packages
+dist
+build
+parts
+var
+sdist
+.installed.cfg
