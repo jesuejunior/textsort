@@ -1,109 +1,96 @@
 package sort;
 
-import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MergeSort {
-	
-	private int[]data;
-	private static final Random generator=new Random();
-	
-	public MergeSort(int size){
-		data=new int[size];
-		
-		//preenche o array com inteiros aleatorios entre 10 e 99
-		for(int i=0; i<size; i++)
-			data[i]=10 + generator.nextInt(90);
-	}
-	
-	public void sort()
-	{
-		sortArray(0, data.length-1);
-	}
-	
 
-	//divide o array, classifica subarrayus e intercala subarrays no array classificado
-	private void sortArray(int low, int high)
-	{
-		if((high-low)>=1)				//O array tem que ter pelo menos tamanho 1
-		{
-			int middle1=(low+high)/2;   //calcula o meio do array
-			int middle2=middle1+1;      //calcula o proximo elemento
-			
-			System.out.println("split:");
-			System.out.println(subarray(low, high));
-			System.out.println(subarray(low, middle1));
-			System.out.println(subarray(middle2, high));
-			System.out.println();
-			
-			//divide o array pela metade e classifica cada metade recursivamente!
-			sortArray(low, middle1);	//primeira metade do array
-			sortArray(middle2, high);	//segunda metade do array
-			
-			//intercala dois arrays classificados depois que as chamadas de divisao retornam
-			merge(low, middle1, middle2, high);
+	public String[] mergeSort(String[] list) {
+		String[] sorted = new String[list.length];
+		if (list.length == 1) {
+			sorted = list;
+		} else {
+			int mid = list.length / 2;
+			String[] left = null;
+			String[] right = null;
+			if ((list.length % 2) == 0) {
+				left = new String[list.length / 2];
+				right = new String[list.length / 2];
+			} else { 
+				left = new String[list.length / 2];
+				right = new String[(list.length / 2) + 1];
+			}
+			int x = 0;
+			int y = 0;
+			for (; x < mid; x++) {
+				left[x] = list[x];
+			}
+			for (; x < list.length; x++) {
+				right[y++] = list[x];
+			}
+			left = mergeSort(left);
+			right = mergeSort(right);
+			// sorted = merge(left,right);
+			sorted = mergeArray(left, right);
 		}
-		
-	}
-	
-	private void merge(int left, int middle1, int middle2, int right)
-	{
-		int leftIndex=left;  	//indice no subarray esquerdo
-		int rightIndex=middle2;	//indice no subarray direito
-		int combinedIndex=left;	//indice no array temporário funcional
-		int[] combined=new int[data.length]; //array funcional
-		
-		//gera uma saida de dois subarrays antes de mesclars
-		System.out.println("merge:");
-		System.out.println(subarray(left, middle1));
-		System.out.println(subarray(middle2, right));
-		
-		//intercala arrays ate alcancar o fim de um deles
-		while(leftIndex<=middle1 && rightIndex <=right)
-		{
-			//coloca o menor dos dois elementos atuais no resultado
-			//e o move para o proximo espaco nos arrays
-			if(data[leftIndex]<=data[rightIndex])
-				combined[combinedIndex++]=data[leftIndex++];
-			else
-				combined[combinedIndex++]=data[rightIndex++];
-		}
-		
-		//se o array esquerdo estiver vazio
-		if(leftIndex==middle2)
-			//copia o restante do array direito
-			while(rightIndex<=right)
-				combined[combinedIndex++]=data[rightIndex++];
-		else	//o array direito esta vazio
-			//copia o restante do array esquerdo
-			while(leftIndex<=middle1)
-				combined[combinedIndex++]=data[leftIndex++];
-		//copia os valores de volta ao array original
-		for (int i=left;i<=right;i++)
-			data[i]=combined[i];
-		
-		//gera saida do array intercalado
-		System.out.println(subarray(left, right));
-		System.out.println();
+
+		return sorted;
 	}
 
-	/** Metodo para gerar saida de alguns valores do array
-	 */
-	public String subarray(int low, int high)
-	{
-		StringBuilder temporary=new StringBuilder();
-		//gera espacos para alinhamento
-		for(int i=0; i<low; i++)
-			temporary.append("   ");
-		
-		//gera a saida dos elementos que permanecem no array
-		for(int i=low; i<=high; i++)
-			temporary.append(" "+data[i]);
-		return temporary.toString();
+	@SuppressWarnings("unused")
+	private String[] merge(String[] left, String[] right) {
+		List<String> merged = new ArrayList<String>();
+		List<String> lstLeft = new ArrayList<String>(Arrays.asList(left));
+		List<String> lstRight = new ArrayList<String>(Arrays.asList(right));
+		int comp = 0;
+		while (!lstLeft.isEmpty() || !lstRight.isEmpty()) {
+			if (lstLeft.isEmpty()) {
+				merged.add(lstRight.remove(0));
+			} else if (lstRight.isEmpty()) {
+				merged.add(lstLeft.remove(0));
+			} else { 
+				comp = lstLeft.get(0).compareTo(lstRight.get(0));
+				if (comp > 0) {
+					merged.add(lstRight.remove(0));
+
+				} else if (comp < 0) {
+					merged.add(lstLeft.remove(0));
+				} else { 
+					merged.add(lstLeft.remove(0));
+				}
+			}
+
+		}
+		return merged.toArray(new String[merged.size()]);
 	}
-	
-	//metodo para gerar saida de valores noa array
-	public String toString()
-	{
-		return subarray(0,data.length-1);
+
+	private String[] mergeArray(String[] left, String[] right) {
+		String[] merged = new String[left.length + right.length];
+		int lIndex = 0;
+		int rIndex = 0;
+		int mIndex = 0;
+		int comp = 0;
+		while (lIndex < left.length || rIndex < right.length) {
+			if (lIndex == left.length) {
+				merged[mIndex++] = right[rIndex++];
+			} else if (rIndex == right.length) {
+				merged[mIndex++] = left[lIndex++];
+			} else { 
+				comp = left[lIndex].compareTo(right[rIndex]);
+				if (comp > 0) {
+					merged[mIndex++] = right[rIndex++];
+				} else if (comp < 0) {
+					merged[mIndex++] = left[lIndex++];
+				} else { 
+					merged[mIndex++] = left[lIndex++];
+				}
+			}
+		}
+		return merged;
 	}
+
 }

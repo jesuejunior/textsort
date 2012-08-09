@@ -1,20 +1,37 @@
 package start;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import sort.MergeSort;
+import utils.DoFile;
+import utils.Helper;
 
 
 public class MergeSortStart {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		MergeSort sortArray=new MergeSort(0);
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+		Helper help = new Helper();
+		String[] lista = DoFile.read("arquivo.txt");
 		
-		System.out.println("Array nao ordenado: ");
-		System.out.println(sortArray+"\n");
+		MergeSort sort = new MergeSort();
+		long start = System.currentTimeMillis();
+		Date now = new Date(start);
+		System.out.println("Inicio: " + format.format(now));
+		String[] fileSorted = sort.mergeSort(lista);
 		
-		sortArray.sort();
-		
-		System.out.println("Array ordenado");
-		System.out.println(sortArray);
+		System.out.println("QTDE de palavras: " + fileSorted.length);
+		for (int i = 0; i < fileSorted.length; i++) {
+			
+			DoFile.save("out.txt", help.clean(fileSorted[i]) + "\n", true);
+
+		}
+		long end = System.currentTimeMillis();
+		now = new Date(end);
+		System.out.println("Fim: " + format.format(now));
+		System.out.println("Tempo gasto: " + format.format(end - start));
 	}
 
 
