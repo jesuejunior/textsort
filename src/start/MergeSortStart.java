@@ -31,7 +31,7 @@ public class MergeSortStart {
 		long end = System.currentTimeMillis();
 		now = new Date(end);
 		System.out.println("Fim: " + format.format(now));
-		System.out.println("Tempo gasto: " + format.format(end - start));
+		System.out.println("Tempo gasto: " + ((end - start)/1000) + " seconds");
 	}
 
 
