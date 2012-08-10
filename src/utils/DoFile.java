@@ -19,28 +19,10 @@ public class DoFile {
 		fw.write(content);
 		fw.close();
 	}
-/*
-	public static String carregar(String arquivo) throws FileNotFoundException, IOException {
 
-		File file = new File(arquivo);
-
-		if (!file.exists()) {
-			return null;
-		}
-
-		BufferedReader br = new BufferedReader(new FileReader(arquivo));
-		StringBuffer bufSaida = new StringBuffer();
-
-		String linha;
-		while ((linha = br.readLine()) != null) {
-			bufSaida.append(linha + "\n");
-		}
-		br.close();
-		return bufSaida.toString();
-	}
-	*/
 	public static String[] read(String filename) throws IOException {
-		BufferedReader inputStream = new BufferedReader(new FileReader(filename));
+		BufferedReader inputStream = new BufferedReader(
+				new FileReader(filename));
 		List<String> fileList = new ArrayList<String>();
 		String[] sample = null;
 		String l;
@@ -54,4 +36,3 @@ public class DoFile {
 		return fileList.toArray(new String[fileList.size()]);
 	}
 }
-
