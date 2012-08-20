@@ -13,7 +13,6 @@ public class MergeSortStart {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-		Helper help = new Helper();
 		String[] lista = DoFile.read("arquivo.txt");
 
 		MergeSort sort = new MergeSort();
@@ -24,7 +23,6 @@ public class MergeSortStart {
 
 		System.out.println("QTDE de palavras: " + fileSorted.length);
 		for (int i = 0; i < fileSorted.length; i++) {
-			
 
 			DoFile.save("out.txt", fileSorted[i] + "\n", true);
 		}

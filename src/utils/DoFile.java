@@ -27,10 +27,7 @@ public class DoFile {
 		String[] sample = null;
 		String l;
 		while ((l = inputStream.readLine()) != null) {
-			sample = l.split(" ");
-			for (int x = 0; x < sample.length; x++) {
-				fileList.add(sample[x]);
-			}
+			fileList.addAll(new Helper().clean(l));
 		}
 		inputStream.close();
 		return fileList.toArray(new String[fileList.size()]);

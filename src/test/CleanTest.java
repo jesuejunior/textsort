@@ -38,8 +38,18 @@ public class CleanTest {
 		resultadoEsperado.add("jesue");
 		resultadoEsperado.add("junior");
 		
-		assertEquals(resultadoEsperado, h.clean("jesué júnior"));
+		ArrayList<String> esperado = new ArrayList<String>();
+		esperado.add("aeiou");
+		esperado.add("aeiou");
+		esperado.add("aoc");
 		
+		ArrayList<String> acentos = new ArrayList<String>();
+		acentos.addAll(h.clean("àèìòù"));
+		acentos.addAll(h.clean("áéíóú"));
+		acentos.addAll(h.clean("ãõç"));
+		
+		assertEquals(esperado, acentos);
+			
 	}	
 	
 	@Test
