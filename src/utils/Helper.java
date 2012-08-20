@@ -27,7 +27,7 @@ public class Helper {
 		
 		for (String a: r){
 			if (!a.isEmpty() && !a.trim().isEmpty()){
-				resultadoFinal.add(removeAcentos(a));
+				resultadoFinal.add(removeAcentos(a.toLowerCase()));
 			}
 		}
 
