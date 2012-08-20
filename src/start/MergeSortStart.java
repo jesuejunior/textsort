@@ -26,7 +26,7 @@ public class MergeSortStart {
 		for (int i = 0; i < fileSorted.length; i++) {
 			
 
-			DoFile.save("out.txt", help.clean(fileSorted[i]) + "\n", true);
+			DoFile.save("out.txt", fileSorted[i] + "\n", true);
 		}
 		long end = System.currentTimeMillis();
 		now = new Date(end);
