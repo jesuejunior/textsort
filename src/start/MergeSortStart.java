@@ -24,7 +24,7 @@ public class MergeSortStart {
 
 		System.out.println("QTDE de palavras: " + fileSorted.length);
 		for (int i = 0; i < fileSorted.length; i++) {
-			fileSorted[i].trim();
+			
 
 			DoFile.save("out.txt", help.clean(fileSorted[i]) + "\n", true);
 		}
