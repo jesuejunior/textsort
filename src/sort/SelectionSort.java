@@ -4,19 +4,19 @@ package sort;
 public class SelectionSort {
 
 	public String[] selectionSort(String[] list) {
-		for (int index = 1; index < list.length; index++) {
+		for (int count = 1; count < list.length; count++) {
 			// Procura pelo primeiro elemento
-			int count = index - 1;
-			for (int j = index; j < list.length; j++) {
-				if (list[j].compareTo(list[count]) < 0) {
-					count = j;
+			int index = count - 1;
+			for (int j = count; j < list.length; j++) {
+				if (list[j].compareTo(list[index]) < 0) {
+					index = j;
 				}
 			}
 
 			// swap com o menor valor i-1
-			String temp = list[index - 1];
-			list[index - 1] = list[count];
-			list[count] = temp;
+			String temp = list[count - 1];
+			list[count - 1] = list[index];
+			list[index] = temp;
 
 		}
 		return list;
