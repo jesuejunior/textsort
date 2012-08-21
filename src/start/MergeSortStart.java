@@ -22,15 +22,16 @@ public class MergeSortStart {
 		String[] fileSorted = sort.mergeSort(lista);
 
 		System.out.println("QTDE de palavras: " + fileSorted.length);
-		for (int i = 0; i < fileSorted.length; i++) {
-
-			DoFile.save("out.txt", fileSorted[i] + "\n", true);
-		}
 		long end = System.currentTimeMillis();
 		now = new Date(end);
 		System.out.println("Fim: " + format.format(now));
 		System.out.println("Tempo gasto em segundos: " + ((end - start) / 1000)	+ " s");
 		System.out.println("Tempo gasto em milisegundos: " + (end - start)	+ " ms");
+
+		for (int i = 0; i < fileSorted.length; i++) {
+			
+			DoFile.save("out_MergeSort.txt", fileSorted[i] + "\n", true);
+		}
 	}
 
 }
