@@ -1,0 +1,49 @@
+MergeSort 1M
+Inicio: 23:46:08
+QTDE de palavras: 140397
+Fim: 23:46:08
+Tempo gasto em segundos: 0 s
+Tempo gasto em milisegundos: 557 ms
+
+MergeSort 10M
+Inicio: 23:47:22
+QTDE de palavras: 1344276
+Fim: 23:47:24
+Tempo gasto em segundos: 2 s
+Tempo gasto em milisegundos: 2152 ms
+
+MergeSort 40M
+Inicio: 02:05:43
+QTDE de palavras: 5457172
+Fim: 02:06:02
+Tempo gasto em segundos: 18 s
+Tempo gasto em milisegundos: 18928 ms
+
+
+
+SelectionSort 1M
+Inicio: 00:19:59
+QTDE de palavras: 140397
+Fim: 00:26:38
+Tempo gasto em segundos: 399 s
+Tempo gasto em milisegundos: 399757 ms
+
+SelectionSort 10M
+
+
+
+
+QuickSort 1M
+Inicio: 01:44:00
+QTDE de palavras: 140397
+Fim: 01:44:08
+Tempo gasto em segundos: 7 s
+Tempo gasto em milisegundos: 7515 ms
+
+InsertionSort 1M
+Inicio: 01:41:45
+QTDE de palavras: 140397
+Fim: 02:09:14
+Tempo gasto em segundos: 1648 s
+Tempo gasto em milisegundos: 1648217 ms
+
