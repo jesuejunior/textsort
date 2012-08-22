@@ -16,6 +16,8 @@ d. Execute a aplicação desenvolvida no exercício 2, aplicando cada um dos 3 a
 
 e. Preencha a tabela a seguir. 
 
+Os resultados estão no arquivo resultados.txt
+
 Nome || Arquivo || Qtd Palavras || Tamanho(Kb) || Tempo de Execução 
 
 
@@ -24,3 +26,7 @@ Insertion || Selection || Merge || Quick
 4. Construa uma aplicação Java que leia um arquivo texto e procure por uma palavra informada pelo usuário, exibindo quantas vezes esta palavra aparece no arquivo. Utilize pesquisa binária
 
 5. Utilize o mesmo raciocínio do exercício 3 para comparar o desempenho entre o algoritmo de pesquisa linear e o algoritmo de pesquisa binária.
+
+
+OBS: Para executar o QuickSort com arquivos acima de 1MB é necessario aumentar a memoria do Stack, dentro do eclipse menu Run > Run configuration > Vm Arguments > Adicione -Xss5m
+OBS2: Os resultados estão no arquivo resultados.txt
