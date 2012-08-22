@@ -35,12 +35,26 @@ Fim: 10:02:56
 Tempo gasto em segundos: 34518 s
 Tempo gasto em milisegundos: 34518562 ms
 
+SelectionSort 40M
+Inicio: 10:27:37
+QTDE de palavras: 1344276
+Fim: Indeterminado
+Tempo gasto em segundos: Já havia passado de 24h
+Tempo gasto em milisegundos: Já havia passado de 24h
+
 QuickSort 1M
 Inicio: 01:44:00
 QTDE de palavras: 140397
 Fim: 01:44:08
 Tempo gasto em segundos: 7 s
-Tempo gasto em milisegundos: 7515 ms
+Tempo gasto em milisegundos: 3775 ms
+
+QuickSort 10M
+Inicio: 14:08:23
+QTDE de palavras: 140397
+Fim: 14:08:26
+Tempo gasto em segundos: 2 s
+Tempo gasto em milisegundos: 2792 ms
 
 InsertionSort 1M
 Inicio: 01:41:45
