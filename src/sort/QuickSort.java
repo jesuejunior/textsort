@@ -3,8 +3,8 @@ package sort;
 
 public class QuickSort {
 
-	public synchronized String[] quickSort(String list[], int inicio, int fim) {
-		int meio = 0;
+	public synchronized String[] quickSort(String list[], Integer inicio, Integer fim) {
+		Integer meio = 0;
 
 		if (inicio < fim) {
 			meio = partition(list, inicio, fim);
@@ -14,8 +14,8 @@ public class QuickSort {
 		return list;
 	}
 
-	public synchronized int partition(String[] list, int inicio, int end) {
-		int top, i;
+	public synchronized int partition(String[] list, Integer inicio, Integer end) {
+		Integer top, i;
 		String pivo;
 		pivo = list[inicio];
 		top = inicio;

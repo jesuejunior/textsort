@@ -6,14 +6,13 @@ import java.util.Date;
 
 import sort.MergeSort;
 import utils.DoFile;
-import utils.Helper;
 
 public class MergeSortStart {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-		String[] lista = DoFile.read("arquivo.txt");
+		String[] lista = DoFile.read("arquivo_40M.txt");
 
 		MergeSort sort = new MergeSort();
 		long start = System.currentTimeMillis();

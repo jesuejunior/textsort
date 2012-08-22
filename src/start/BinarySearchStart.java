@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 import search.BinarySearch;
 import utils.DoFile;
-import utils.Util;
+
 
 public class BinarySearchStart {
 	public static void main(String[] args) throws IOException {

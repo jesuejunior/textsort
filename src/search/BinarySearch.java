@@ -4,13 +4,27 @@ import java.util.List;
 import java.util.Collections;
 
 public class BinarySearch {
-	public static void search(List<String> list, String word) {
+	public synchronized static void search(String[] list, String word) {
 		int result = 0;
-
+		int left = 0;
+        int right = list.length - 1;
+        int middle;
+ 
+        while ( left <= right ) {
+                middle = left + ((right - left) / 2);
+                if ( word.equals(list[middle])) {
+                	break;
+                } else if( word.equals(list[middle])) {
+                        right = middle - 1;
+                } else {
+                	left = middle + 1;
+                }
+        }
 		System.out.printf("\nSearching for: %s\n", word);
-		result = Collections.binarySearch(list, word);
-		Integer qtde = Collections.frequency(list, word);
+	//	result = Collections.binarySearch(list, word);
+	//	Integer qtde = Collections.frequency(list, word);
 
+		int qtde = 0;
 		if (result >= 0)
 			if (qtde == 1) {
 				System.out.printf("A palavra [%s] aparece apenas uma vez \n",word);
@@ -20,3 +34,22 @@ public class BinarySearch {
 			System.out.printf("Palavra não existe!\n", result);
 	}
 }
+//
+//public static int buscaBinaria( int[] list, String word )
+//{
+//        int left = 0;
+//        int right = list.length - 1;
+//        int middle;
+// 
+//        while ( left <= right ) {
+//                middle = left + ((right - left) / 2);
+//                if ( word.equals(list[middle])) {
+//                	return middle;
+//                } else if( word.equals(list[middle])) {
+//                        right = middle - 1;
+//                } else {
+//                	left = middle + 1;
+//                }
+//        }
+//        return -1;
+//}
