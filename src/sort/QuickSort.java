@@ -1,49 +1,33 @@
 package sort;
-public class QuickSort{
-	public static void main(String a[]){
-		int i;
-		int array[] = {12,9,4,99,120,1,3,10,13};
 
-		System.out.println("\n\n       RoseIndia\n\n");
-		System.out.println("       Quick Sort\n\n");
-		System.out.println("Values Before the sort:\n");
-		for(i = 0; i < array.length; i++)
-			System.out.print( array[i]+"  ");
-		System.out.println();
-		quick_srt(array,0,array.length-1);
-		System.out.print("Values after the sort:\n");
-		for(i = 0; i <array.length; i++)
-			System.out.print(array[i]+"  ");
-		System.out.println();
-		System.out.println("PAUSE");
+
+public class QuickSort {
+
+	public synchronized String[] quickSort(String list[], int inicio, int fim) {
+		int meio = 0;
+
+		if (inicio < fim) {
+			meio = partition(list, inicio, fim);
+			quickSort(list, inicio, meio);
+			quickSort(list, meio+1, fim);
+		}
+		return list;
 	}
 
-	public static void quick_srt(int array[],int low, int n){
-		int lo = low;
-		int hi = n;
-		if (lo >= n) {
-			return;
-		}
-		int mid = array[(lo + hi) / 2];
-		while (lo < hi) {
-			while (lo<hi && array[lo] < mid) {
-				lo++;
-			}
-			while (lo<hi && array[hi] > mid) {
-				hi--;
-			}
-			if (lo < hi) {
-				int T = array[lo];
-				array[lo] = array[hi];
-				array[hi] = T;
+	public synchronized int partition(String[] list, int inicio, int end) {
+		int top, i;
+		String pivo;
+		pivo = list[inicio];
+		top = inicio;
+
+		for (i = inicio + 1; i <= end; i++) {
+			if (list[i].compareTo(pivo) < 0) {
+				list[top] = list[i];
+				list[i] = list[top + 1];
+				top++;
 			}
 		}
-		if (hi < lo) {
-			int T = hi;
-			hi = lo;
-			lo = T;
-		}
-		quick_srt(array, low, lo);
-		quick_srt(array, lo == low ? lo+1 : lo, n);
+		list[top] = pivo;
+		return top;
 	}
 }

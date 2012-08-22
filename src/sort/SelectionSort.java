@@ -3,7 +3,7 @@ package sort;
 
 public class SelectionSort {
 
-	public String[] selectionSort(String[] list) {
+	public synchronized String[] selectionSort(String[] list) {
 		for (int count = 1; count < list.length; count++) {
 			// Procura pelo primeiro elemento
 			int index = count - 1;

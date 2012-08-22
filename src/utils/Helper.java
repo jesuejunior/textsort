@@ -7,7 +7,6 @@ public class Helper {
 
 	private static final HashMap<String, String> MAP_ACENTOS = new HashMap<String, String>();
 
-	
 	static {
 		MAP_ACENTOS.put("[áàãâ]", "a");
 		MAP_ACENTOS.put("[éèê]", "e");
@@ -17,10 +16,9 @@ public class Helper {
 		MAP_ACENTOS.put("ç", "c");
 	}
 	
-
 	public ArrayList<String> clean(String word) {
 		
-		String remover = "[!@\\$%&*()-_=+{}\"# ]";
+		String remover = "[\\'\\[\\]\\`!@\\$%&*()-_=+{}\"# ]";
 				
 		String[] r = word.split(remover);
 		ArrayList<String> resultadoFinal = new ArrayList<String>();
@@ -33,7 +31,6 @@ public class Helper {
 
 		return resultadoFinal;
 	}
-
 	
 	private String removeAcentos(String s){
 		for (String k: MAP_ACENTOS.keySet()){

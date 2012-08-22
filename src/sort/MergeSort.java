@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MergeSort {
 
-	public String[] mergeSort(String[] list) {
+	public synchronized String[] mergeSort(String[] list) {
 		String[] sorted = new String[list.length];
 		if (list.length == 1) {
 			sorted = list;
@@ -39,7 +39,7 @@ public class MergeSort {
 	}
 
 	@SuppressWarnings("unused")
-	private String[] merge(String[] left, String[] right) {
+	private synchronized String[] merge(String[] left, String[] right) {
 		List<String> merged = new ArrayList<String>();
 		List<String> lstLeft = new ArrayList<String>(Arrays.asList(left));
 		List<String> lstRight = new ArrayList<String>(Arrays.asList(right));
@@ -65,7 +65,7 @@ public class MergeSort {
 		return merged.toArray(new String[merged.size()]);
 	}
 
-	private String[] mergeArray(String[] left, String[] right) {
+	private synchronized String[] mergeArray(String[] left, String[] right) {
 		String[] merged = new String[left.length + right.length];
 		int lIndex = 0;
 		int rIndex = 0;

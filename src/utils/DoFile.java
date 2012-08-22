@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DoFile {
 
-	public static void save(String file, String content, boolean add)
+	public synchronized static void save(String file, String content, boolean add)
 			throws IOException {
 
 		FileWriter fw = new FileWriter(file, add);
@@ -18,7 +18,7 @@ public class DoFile {
 		fw.close();
 	}
 
-	public static String[] read(String filename) throws IOException {
+	public synchronized static String[] read(String filename) throws IOException {
 		BufferedReader inputStream = new BufferedReader(
 				new FileReader(filename));
 		List<String> fileList = new ArrayList<String>();

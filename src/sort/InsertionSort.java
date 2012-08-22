@@ -3,7 +3,7 @@ package sort;
 
 public class InsertionSort {
 	
-	public String[] insertionSort(String[] list){
+	public synchronized String[] insertionSort(String[] list){
         String temp="";
         for(int i=0;i<list.length;i++){
             for(int j=i+1;j<list.length;j++){
