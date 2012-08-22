@@ -29,9 +29,11 @@ Tempo gasto em segundos: 399 s
 Tempo gasto em milisegundos: 399757 ms
 
 SelectionSort 10M
-
-
-
+Inicio: 00:27:37
+QTDE de palavras: 1344276
+Fim: 10:02:56
+Tempo gasto em segundos: 34518 s
+Tempo gasto em milisegundos: 34518562 ms
 
 QuickSort 1M
 Inicio: 01:44:00
